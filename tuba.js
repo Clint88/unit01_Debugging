@@ -32,22 +32,54 @@ var acresBox = document.forms[0].acres;
 
 /* verify acres text box entry is a positive number */
 function verifyAcres() {
-   testFormCompleteness();      
+   if(acresBox.value < 0){
+      alert("You can only have positve numbers");
+      acresBox.value = "0";
+   }
+   
+   acresComplete();
 }
 
 /* verify at least one crops checkbox is checked */
 function verifyCrops() {
+   try{
+      for(var i = 0; i < 7; i++){
+         if(cropsFieldset.getElementsByTagName("input")[i].checked){
+            cropsComplete = true;
+            messageElement.innerHTML = "";
+            i = 8;
+         }
+      }
+      if(i === 7){
+         throw "please select at least one crop"
+      }
+   }
+   catch(message){
+      cropsComplete = false;
+      messageHeadElement.innerHTML = "";
+      messageElement.innerHTML = message;
+   }
+   
    testFormCompleteness();
 }
 
 /* verify months text box entry is between 1 and 12 */
 function verifyMonths() {
-   testFormCompleteness();
+   if(monthsBox.value < 1 || monthsBox.value > 12){
+      alert("You can only have numbers from 1 to 12");
+      monthsBox.value = "1";
+   }
+
+   monthsComplete();
 }
 
 /* verify that a fuel option button is selected */
 function verifyFuel() {
-   testFormCompleteness();
+   if(fuelFieldset = false){
+      alert("please select a fuel type");
+   }
+   
+   fuelFieldset();
 }
 
 /* check if all four form sections are completed */
