@@ -4,8 +4,8 @@
  *    Tuba Farm Equipment
  *    Variables and functions
  *    
- *    Author: 
- *    Date:   
+ *    Author: Clint Crockett
+ *    Date:   9/16/20
 
  *    Filename: tuba.js
  */
